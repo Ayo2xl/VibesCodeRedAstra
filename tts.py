@@ -1,4 +1,7 @@
 import os # acces to operating systems 
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("ELEVENLABS_API_KEY") 
 from elevenlabs.client import ElevenLabs
 from elevenlabs import save # helper save to help me write audio to a file.
 
