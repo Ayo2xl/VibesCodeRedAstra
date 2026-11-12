@@ -41,11 +41,14 @@ def choose_voice():
     return voice[names[int(choice) - 1]]
 # function that allows the user to choose a voice from the dictionary.
 if __name__ == "__main__":
-    text = input("Enter the text you want to convert to speech:")
-    if text_to_speech == "":
-        print("Please enter some text.")
-    else:
-        voice_id = choose_voice ()# this is the user's choice
-        if text_to_speech(text, voice_id=voice_id):
-            print("Speech generated successfully!")
-            print("Done! Check output.mp3")
+    while True:
+        text = input("\nEnter text (or 'quit' to exit): ")
+        if text.strip().lower() == "quit":
+            print("Goodbye!")
+            break
+        if text.strip() == "":
+            print("Please enter some text.")
+        else:
+            voice_id = choose_voice()
+            if text_to_speech(text, voice_id=voice_id):
+                print("Done! Check output.mp3")
